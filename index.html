@@ -7,16 +7,13 @@
   <body>
     <input id="username">
     <input id="password" type="password">
-    <button id="guest-button">Login as guest</button>
+    <button id="guest-button" onclick="guestLogin(usernameEl, passwordEl)">Login as guest</button>
 
     <script>
       var usernameEl = document.querySelector('#username');
       var passwordEl = document.querySelector('#password');
-      var guestButton = document.querySelector('#guest-button');
 
-      guestButton.addEventListener('click', guestLogin);
-
-      function guestLogin() {
+      function guestLogin(usernameEl, passwordEl) {
         var username = 'guest';
         var password = 'password';
         function iterate() {
