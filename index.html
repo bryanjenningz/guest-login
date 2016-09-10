@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Guest Login</title>
+  </head>
+  <body>
+    <input id="username">
+    <input id="password" type="password">
+    <button id="guest-button">Login as guest</button>
+
+    <script>
+      var usernameEl = document.querySelector('#username');
+      var passwordEl = document.querySelector('#password');
+      var guestButton = document.querySelector('#guest-button');
+
+      guestButton.addEventListener('click', guestLogin);
+
+      function guestLogin() {
+        var username = 'guest';
+        var password = 'password';
+        function iterate() {
+          if (username.length === 0) {
+            if (password.length === 0) {
+              clearInterval(intervalId);
+            } else {
+              passwordEl.value = passwordEl.value + password[0];
+              password = password.slice(1);
+            }
+          } else {
+            usernameEl.value = usernameEl.value + username[0];
+            username = username.slice(1);
+          }
+        }
+        var intervalId = setInterval(iterate, 50);
+      }
+    </script>
+  </body>
+</html>
